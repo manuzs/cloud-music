@@ -1,6 +1,7 @@
 {
-  "name": "cloud-music",
+  "name": "wangyi-music",
   "version": "0.1.0",
+  "homepage": "https://sanyuan0704.github.io/cloud-music",
   "private": true,
   "dependencies": {
     "@babel/core": "7.4.3",
@@ -22,11 +23,13 @@
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
     "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.7.0",
     "eslint-config-react-app": "^4.0.1",
     "eslint-loader": "2.1.2",
     "eslint-plugin-flowtype": "2.50.1",
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-react-hooks": "^1.5.0",
     "fastclick": "^1.0.6",
@@ -49,6 +52,7 @@
     "postcss-normalize": "7.0.1",
     "postcss-preset-env": "6.6.0",
     "postcss-safe-parser": "4.0.1",
+    "prettier": "^1.19.1",
     "react": "^16.8.6",
     "react-app-polyfill": "^1.0.1",
     "react-dev-utils": "^9.0.1",
@@ -60,7 +64,6 @@
     "react-router": "^5.0.1",
     "react-router-config": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.2.0",
     "react-transition-group": "^4.2.1",
     "redux": "^4.0.4",
     "redux-immutable": "^4.0.0",
@@ -73,20 +76,20 @@
     "swiper": "^4.5.0",
     "terser-webpack-plugin": "1.2.3",
     "ts-pnp": "1.1.2",
+    "url-loader": "1.1.2",
     "webpack": "4.29.6",
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.2.0"
   },
   "scripts": {
-    "start:server": "cd NeteaseCloudMusicApi && cross-env PORT=3301 node app.js",
+    "start:server": "cd NeteaseCloudMusicApi && cross-env PORT=3300 node app.js",
     "start:react": "node scripts/start.js",
     "start": "concurrently \"npm run start:server\" \"npm run start:react\"",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -105,6 +108,7 @@
   },
   "devDependencies": {
     "cross-env": "^5.2.0",
+    "react-app-rewired": "^2.1.5",
     "react-hot-loader": "^4.12.12",
     "url-loader": "^2.1.0"
   },

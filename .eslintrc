@@ -1,0 +1,12 @@
+{
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "rules": {
+    "jsx-a11y/alt-text": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-script-url": "off",
+    "no-unused-vars": "warn",
+    "eqeqeq": "warn",
+    "array-callback-ret": "off",
+    "no-restricted-globals": "warn"
+  }
+}
