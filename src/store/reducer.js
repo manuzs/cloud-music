@@ -1,5 +1,5 @@
 import { combineReducers } from "redux-immutable";
-// import { reducer as recommendReducer } from "../application/Recommend/store/";
+import { reducer as recommendReducer } from "@app/Recommend/store";
 // import { reducer as singersReducer } from "../application/Singers/store/index";
 // import { reducer as rankReducer } from "../application/Rank/store/index";
 // import { reducer as albumReducer } from "../application/Album/store/index";
@@ -9,7 +9,7 @@ import { combineReducers } from "redux-immutable";
 // import { reducer as userReducer } from "../application/User/Login/store/index";
 
 export default combineReducers({
-  //   recommend: recommendReducer
+  recommend: recommendReducer
   //   singers: singersReducer,
   //   rank: rankReducer,
   //   album: albumReducer,

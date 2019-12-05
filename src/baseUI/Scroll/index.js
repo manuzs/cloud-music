@@ -9,41 +9,11 @@ import React, {
 } from "react";
 import PropTypes from "prop-types";
 import BScroll from "better-scroll";
-import styled from "styled-components";
 
-import Loading from "../loading";
-import Loading2 from "../loading-v2";
-
-import { debounce } from "../../api/utils";
-
-const ScrollContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-`;
-
-const PullUpLoading = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 5px;
-  width: 60px;
-  height: 60px;
-  margin: auto;
-  z-index: 100;
-  display: ${props => (props.display ? "" : "none")};
-`;
-
-export const PullDownLoading = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 30px;
-  margin: auto;
-  z-index: 100;
-  display: ${props => (props.display ? "" : "none")};
-`;
+import Loading from "../Loading";
+import Loading2 from "../LoadingV2";
+import { debounce } from "@common/utils";
+import { ScrollContainer, PullUpLoading, PullDownLoading } from "./style";
 
 const Scroll = forwardRef(function(props, ref) {
   const [bScroll, setBScroll] = useState(null);
@@ -150,11 +120,11 @@ const Scroll = forwardRef(function(props, ref) {
     <ScrollContainer ref={ScrollContainerRef}>
       {props.children}
       {/** 滑到底部加载动画 */}
-      <PullUpLoading display={pullUpLoading}>
+      <PullUpLoading display={pullUpLoading.toString()}>
         <Loading></Loading>
       </PullUpLoading>
       {/** 滑到顶部加载动画 */}
-      <PullDownLoading display={pullDownLoading}>
+      <PullDownLoading display={pullDownLoading.toString()}>
         <Loading2></Loading2>
       </PullDownLoading>
     </ScrollContainer>
