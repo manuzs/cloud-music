@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Redirect } from "react-router-dom";
-import HomeLayout from "../layouts/HomeLayout";
-import BlankLayout from "../layouts/BlankLayout";
+import HomeLayout from "@layouts/HomeLayout";
+import BlankLayout from "@layouts/BlankLayout";
 
 const SuspenseComponent = Component => props => {
   return (
@@ -11,7 +11,8 @@ const SuspenseComponent = Component => props => {
   );
 }; // 高阶组件返回被Suspense包裹的组件，fallback=组件未渲染执行的loading
 
-const RecommendComponent = lazy(() => import("../application/Recommend/"));
+const RecommendComponent = lazy(() => import("@app/Recommend/"));
+const AlbumComponent = lazy(() => import("@app/Album"));
 
 export default [
   {
@@ -32,7 +33,7 @@ export default [
             routes: [
               {
                 path: "/recommend/:id",
-                component: SuspenseComponent()
+                component: SuspenseComponent(AlbumComponent)
               }
             ]
           }
