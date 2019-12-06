@@ -1,7 +1,7 @@
 import React, { memo, forwardRef } from "react";
 import PropTypes from "prop-types";
 
-import { HeaderContainer, Marque } from "./style";
+import { HeaderContainer } from "./style";
 
 const Header = forwardRef((props, ref) => {
   const { handleClick, title, isMarque } = props;
@@ -9,9 +9,14 @@ const Header = forwardRef((props, ref) => {
     <HeaderContainer ref={ref}>
       <i className="iconfont back" onClick={handleClick}></i>
       {isMarque ? (
-        <Marque>
+        // <MarqueeContainer>
+        //   <Marquee>
+        //     <h1>{title}</h1>
+        //   </Marquee>
+        // </MarqueeContainer>
+        <marquee>
           <h1>{title}</h1>
-        </Marque>
+        </marquee>
       ) : (
         <h1>{title}</h1>
       )}
