@@ -4,12 +4,13 @@ import { connect } from "react-redux";
 import { renderRoutes } from "react-router-config";
 
 import Slider from "@components/Slider";
-import RecommendList from "@components/RecommendList";
-import Scroll from "@baseUI/Scroll";
-import LoadingV2 from "@baseUI/Loading";
+import Scroll from "@components/Scroll";
+import LoadingV2 from "@components/Loading";
+import RecommendList from "./components/RecommendList";
 
 import { getBannerList, getRecommendList } from "./request";
-import { Content, EnterLoading } from "./style";
+import { EnterLoading } from "@common/style";
+import { Content } from "./style";
 
 function Recommend(props) {
   const { bannerList, recommendList, enterLoading } = props;
