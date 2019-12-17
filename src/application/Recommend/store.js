@@ -3,11 +3,13 @@ import { fromJS } from "immutable";
 const CHANGE_BANNER = "home/recommend/CHANGE_BANNER";
 const CHANGE_RECOMMEND_LIST = "home/recommend/RECOMMEND_LIST";
 const CHANGE_ENTER_LOADING = "home/CHANGE_ENTER_LOADING";
+const CHANGE_READY = "home/CHANGE_READY";
 
 const defaultState = fromJS({
   bannerList: [],
   recommendList: [],
-  enterLoading: true
+  enterLoading: true,
+  ready: false
 }); // 默认state
 
 const reducer = (state = defaultState, action) => {
@@ -18,6 +20,8 @@ const reducer = (state = defaultState, action) => {
       return state.set("enterLoading", action.payload);
     case CHANGE_RECOMMEND_LIST:
       return state.set("recommendList", action.payload);
+    case CHANGE_READY:
+      return state.set("ready", action.payload);
     default:
       return state;
   }
@@ -38,4 +42,15 @@ const changeEnterLoading = payload => ({
   payload
 });
 
-export { reducer, changeBannerList, changeEnterLoading, changeRecommentList };
+const changeReady = payload => ({
+  type: CHANGE_READY,
+  payload
+});
+
+export {
+  reducer,
+  changeBannerList,
+  changeEnterLoading,
+  changeRecommentList,
+  changeReady
+};

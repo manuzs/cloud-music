@@ -13,4 +13,8 @@ const getRecommendRequest = () => {
   return Axios("get", "/personalized");
 };
 
-export { getBannerRequest, getRecommendRequest };
+const getAlbumDetailRequest = id => {
+  return Axios("get", `/playlist/detail?id=${id}`);
+};
+
+export { getBannerRequest, getRecommendRequest, getAlbumDetailRequest };

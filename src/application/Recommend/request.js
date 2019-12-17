@@ -2,7 +2,8 @@ import { getBannerRequest, getRecommendRequest } from "@common/api";
 import {
   changeBannerList,
   changeRecommentList,
-  changeEnterLoading
+  changeEnterLoading,
+  changeReady
 } from "./store";
 
 export const getBannerList = () => {
@@ -23,6 +24,7 @@ export const getRecommendList = () => {
       .then(data => {
         dispatch(changeRecommentList(data.result));
         dispatch(changeEnterLoading(false));
+        dispatch(changeReady(true));
       })
       .catch(() => {
         console.log("推荐歌单数据传输错误");

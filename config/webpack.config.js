@@ -273,7 +273,6 @@ module.exports = function(webpackEnv) {
         "@src": path.resolve(__dirname, "../src"),
         "@app": path.resolve(__dirname, "../src/application"),
         "@assets": path.resolve(__dirname, "../src/assets"),
-        "@baseUI": path.resolve(__dirname, "../src/baseUI"),
         "@layouts": path.resolve(__dirname, "../src/layouts"),
         "@components": path.resolve(__dirname, "../src/components"),
         "@common": path.resolve(__dirname, "../src/common")
