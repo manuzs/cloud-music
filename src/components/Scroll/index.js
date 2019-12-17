@@ -3,7 +3,6 @@ import React, {
   useState,
   useCallback,
   useEffect,
-  memo,
   useImperativeHandle,
   forwardRef
 } from "react";
@@ -17,7 +16,7 @@ import { ScrollContainer, PullUpLoading, PullDownLoading } from "./style";
 
 const Scroll = forwardRef(function(props, ref) {
   const [bScroll, setBScroll] = useState(null);
-  const ScrollContainerRef = useRef();
+  const ScrollContainerRef = useRef(null);
 
   const {
     direction,
@@ -26,7 +25,8 @@ const Scroll = forwardRef(function(props, ref) {
     pullUpLoading,
     pullDownLoading,
     bounceTop,
-    bounceBottom
+    bounceBottom,
+    ready
   } = props;
   const { pullUp, pullDown, onScroll } = props;
 
@@ -39,6 +39,7 @@ const Scroll = forwardRef(function(props, ref) {
   }, [pullDown]);
 
   useEffect(() => {
+    if (!ready) return;
     const scroll = new BScroll(ScrollContainerRef.current, {
       scrollX: direction === "horizental", // 是否开启横向滚动
       scrollY: direction === "vertical", // 是否开启纵向滚动
@@ -50,11 +51,13 @@ const Scroll = forwardRef(function(props, ref) {
         bottom: bounceBottom
       }
     });
+    console.log(scroll);
     setBScroll(scroll);
     return () => {
       setBScroll(null);
     };
-  }, [bounceBottom, bounceTop, click, direction]);
+    // eslint-disable-next-line
+  }, [ready]);
 
   useEffect(() => {
     if (!bScroll || !onScroll) return;
@@ -141,7 +144,8 @@ Scroll.defaultProps = {
   pullUp: null,
   pullDown: null,
   bounceTop: true,
-  bounceBottom: true
+  bounceBottom: true,
+  ready: false
 };
 
 Scroll.propTypes = {
@@ -153,7 +157,8 @@ Scroll.propTypes = {
   pullUpLoading: PropTypes.bool,
   pullDownLoading: PropTypes.bool,
   bounceTop: PropTypes.bool, //是否支持向上吸顶
-  bounceBottom: PropTypes.bool //是否支持向上吸顶
+  bounceBottom: PropTypes.bool, //是否支持向下触底
+  ready: PropTypes.bool
 };
 
-export default memo(Scroll);
+export default Scroll;

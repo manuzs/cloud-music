@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import style from "@assets/global-style";
 
 export const Container = styled.div`
   position: fixed;
@@ -7,11 +6,10 @@ export const Container = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: palevioletred;
   width: 100%;
   z-index: 100;
   overflow: hidden;
-  /* background: #f2f3f4; */
+  background: #f2f3f4;
   transform-origin: right bottom;
   &.fly-enter,
   &.fly-appear {

@@ -5,15 +5,13 @@ import { HeaderContainer } from "./style";
 
 const Header = forwardRef((props, ref) => {
   const { handleClick, title, isMarque } = props;
+
   return (
     <HeaderContainer ref={ref}>
-      <i className="iconfont back" onClick={handleClick}></i>
+      <i className="iconfont back" onClick={handleClick}>
+        &#xe655;
+      </i>
       {isMarque ? (
-        // <MarqueeContainer>
-        //   <Marquee>
-        //     <h1>{title}</h1>
-        //   </Marquee>
-        // </MarqueeContainer>
         <marquee>
           <h1>{title}</h1>
         </marquee>
