@@ -13,6 +13,7 @@ const SuspenseComponent = Component => props => {
 
 const RecommendComponent = lazy(() => import("@app/Recommend/"));
 const AlbumComponent = lazy(() => import("@app/Album"));
+const SingersComponent = lazy(() => import("@app/Singers"));
 
 export default [
   {
@@ -36,6 +37,10 @@ export default [
                 component: SuspenseComponent(AlbumComponent)
               }
             ]
+          },
+          {
+            path: "/singers",
+            component: SuspenseComponent(SingersComponent)
           }
         ]
       }

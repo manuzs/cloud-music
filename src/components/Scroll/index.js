@@ -4,7 +4,8 @@ import React, {
   useCallback,
   useEffect,
   useImperativeHandle,
-  forwardRef
+  forwardRef,
+  useMemo
 } from "react";
 import PropTypes from "prop-types";
 import BScroll from "better-scroll";
@@ -30,11 +31,11 @@ const Scroll = forwardRef(function(props, ref) {
   } = props;
   const { pullUp, pullDown, onScroll } = props;
 
-  const pullUpDebounce = useCallback(() => {
+  const pullUpDebounce = useMemo(() => {
     return debounce(pullUp, 300);
   }, [pullUp]);
 
-  const pullDownDebounce = useCallback(() => {
+  const pullDownDebounce = useMemo(() => {
     return debounce(pullDown, 300);
   }, [pullDown]);
 
@@ -100,7 +101,7 @@ const Scroll = forwardRef(function(props, ref) {
     if (refresh && bScroll) {
       bScroll.refresh();
     }
-  }, [bScroll, refresh]);
+  });
 
   // 调用Scroll组件的父组件可用的方法
   useImperativeHandle(
